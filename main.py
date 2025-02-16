@@ -150,6 +150,8 @@ def updateChannelUrlsM3U(channels, template_channels):
                                     base_url = url
 
                                 new_url = f"{base_url}{url_suffix}"
+                                if !new_url.endswith("tsfile/live"):
+                                    continue
 
                                 f_m3u.write(f"#EXTINF:-1 tvg-id=\"{index}\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{category}\",{channel_name}\n")
                                 f_m3u.write(new_url + "\n")
